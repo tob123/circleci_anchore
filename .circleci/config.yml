@@ -11,28 +11,91 @@ jobs:
         - anchore/install_tools
         - anchore/setup_anchore_engine
         - anchore/analyze_image:
-            image_name: 'docker.io/tob123/nextcloud-staging:15'
+            image_name: docker.io/tob123/nextcloud-staging:15.0.1
             timeout: '800'
         - anchore/policy_evaluation:
-            image_name: 'docker.io/tob123/nextcloud-staging:15'
+            image_name: docker.io/tob123/nextcloud-staging:15.0.1
             policy_failure: true
         - anchore/parse_reports
         - store_artifacts:
             path: anchore_reports
         - anchore/analyze_image:
-            image_name: 'docker.io/tob123/nextcloud-staging:14'
+            image_name: docker.io/tob123/nextcloud-staging:15.0.0
             timeout: '800'
         - anchore/policy_evaluation:
-            image_name: 'docker.io/tob123/nextcloud-staging:14'
+            image_name: docker.io/tob123/nextcloud-staging:15.0.0
             policy_failure: true
         - anchore/parse_reports
         - store_artifacts:
             path: anchore_reports
         - anchore/analyze_image:
-            image_name: 'docker.io/tob123/nextcloud:15.0.2'
+            image_name: docker.io/tob123/nextcloud-staging:15
             timeout: '800'
         - anchore/policy_evaluation:
-            image_name: 'docker.io/tob123/nextcloud:15.0.2'
+            image_name: docker.io/tob123/nextcloud-staging:15
+            policy_failure: true
+        - anchore/parse_reports
+        - store_artifacts:
+            path: anchore_reports
+        - anchore/analyze_image:
+            image_name: docker.io/tob123/nextcloud-staging:14.0.6
+            timeout: '800'
+        - anchore/policy_evaluation:
+            image_name: docker.io/tob123/nextcloud-staging:14.0.6
+            policy_failure: true
+        - anchore/parse_reports
+        - store_artifacts:
+            path: anchore_reports
+        - anchore/analyze_image:
+            image_name: docker.io/tob123/nextcloud-staging:14.0.5
+            timeout: '800'
+        - anchore/policy_evaluation:
+            image_name: docker.io/tob123/nextcloud-staging:14.0.5
+            policy_failure: true
+        - anchore/parse_reports
+        - store_artifacts:
+            path: anchore_reports
+        - anchore/analyze_image:
+            image_name: docker.io/tob123/nextcloud-staging:14.0.4
+            timeout: '800'
+        - anchore/policy_evaluation:
+            image_name: docker.io/tob123/nextcloud-staging:14.0.4
+            policy_failure: true
+        - anchore/parse_reports
+        - store_artifacts:
+            path: anchore_reports
+        - anchore/analyze_image:
+            image_name: docker.io/tob123/nextcloud-staging:14.0.3
+            timeout: '800'
+        - anchore/policy_evaluation:
+            image_name: docker.io/tob123/nextcloud-staging:14.0.3
+            policy_failure: true
+        - anchore/parse_reports
+        - store_artifacts:
+            path: anchore_reports
+        - anchore/analyze_image:
+            image_name: docker.io/tob123/nextcloud-staging:14.0.2
+            timeout: '800'
+        - anchore/policy_evaluation:
+            image_name: docker.io/tob123/nextcloud-staging:14.0.2
+            policy_failure: true
+        - anchore/parse_reports
+        - store_artifacts:
+            path: anchore_reports
+        - anchore/analyze_image:
+            image_name: docker.io/tob123/nextcloud-staging:14.0.1
+            timeout: '800'
+        - anchore/policy_evaluation:
+            image_name: docker.io/tob123/nextcloud-staging:14.0.1
+            policy_failure: true
+        - anchore/parse_reports
+        - store_artifacts:
+            path: anchore_reports
+        - anchore/analyze_image:
+            image_name: docker.io/tob123/nextcloud-staging:14
+            timeout: '800'
+        - anchore/policy_evaluation:
+            image_name: docker.io/tob123/nextcloud-staging:14
             policy_failure: true
         - anchore/parse_reports
         - store_artifacts:
