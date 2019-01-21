@@ -26,7 +26,7 @@ jobs:
             image_name: 'docker.io/tob123/nextcloud:15.0.2'
             policy_failure: true
         - anchore/parse_reports
-        - anchore/store_artifacts:
+        - store_artifacts:
             path: anchore_reports
 workflows:
     bla:
