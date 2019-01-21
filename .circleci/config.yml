@@ -6,7 +6,7 @@ orbs:
 workflows:
     scan_image:
         jobs:
-          - anchore/image_scan:
+          - custom_image_scan:
               executor: anchore/anchore_engine
               steps:
                 - checkout
