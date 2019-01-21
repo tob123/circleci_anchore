@@ -4,26 +4,20 @@ orbs:
     anchore: anchore/anchore-engine@1.1.0
 
 jobs:
-  blob2:
+  scan_images_nc_staging:
     executor: anchore/anchore_engine
     steps:
         - checkout
         - anchore/install_tools
         - anchore/setup_anchore_engine
+        - run:
+            name: checking docker.io/tob123/nextcloud-staging:15.0.1
+            command: echo test 
         - anchore/analyze_image:
             image_name: docker.io/tob123/nextcloud-staging:15.0.1
             timeout: '800'
         - anchore/policy_evaluation:
             image_name: docker.io/tob123/nextcloud-staging:15.0.1
-            policy_failure: true
-        - anchore/parse_reports
-        - store_artifacts:
-            path: anchore_reports
-        - anchore/analyze_image:
-            image_name: docker.io/tob123/nextcloud-staging:15.0.0
-            timeout: '800'
-        - anchore/policy_evaluation:
-            image_name: docker.io/tob123/nextcloud-staging:15.0.0
             policy_failure: true
         - anchore/parse_reports
         - store_artifacts:
@@ -42,51 +36,6 @@ jobs:
             timeout: '800'
         - anchore/policy_evaluation:
             image_name: docker.io/tob123/nextcloud-staging:14.0.6
-            policy_failure: true
-        - anchore/parse_reports
-        - store_artifacts:
-            path: anchore_reports
-        - anchore/analyze_image:
-            image_name: docker.io/tob123/nextcloud-staging:14.0.5
-            timeout: '800'
-        - anchore/policy_evaluation:
-            image_name: docker.io/tob123/nextcloud-staging:14.0.5
-            policy_failure: true
-        - anchore/parse_reports
-        - store_artifacts:
-            path: anchore_reports
-        - anchore/analyze_image:
-            image_name: docker.io/tob123/nextcloud-staging:14.0.4
-            timeout: '800'
-        - anchore/policy_evaluation:
-            image_name: docker.io/tob123/nextcloud-staging:14.0.4
-            policy_failure: true
-        - anchore/parse_reports
-        - store_artifacts:
-            path: anchore_reports
-        - anchore/analyze_image:
-            image_name: docker.io/tob123/nextcloud-staging:14.0.3
-            timeout: '800'
-        - anchore/policy_evaluation:
-            image_name: docker.io/tob123/nextcloud-staging:14.0.3
-            policy_failure: true
-        - anchore/parse_reports
-        - store_artifacts:
-            path: anchore_reports
-        - anchore/analyze_image:
-            image_name: docker.io/tob123/nextcloud-staging:14.0.2
-            timeout: '800'
-        - anchore/policy_evaluation:
-            image_name: docker.io/tob123/nextcloud-staging:14.0.2
-            policy_failure: true
-        - anchore/parse_reports
-        - store_artifacts:
-            path: anchore_reports
-        - anchore/analyze_image:
-            image_name: docker.io/tob123/nextcloud-staging:14.0.1
-            timeout: '800'
-        - anchore/policy_evaluation:
-            image_name: docker.io/tob123/nextcloud-staging:14.0.1
             policy_failure: true
         - anchore/parse_reports
         - store_artifacts:
@@ -101,6 +50,6 @@ jobs:
         - store_artifacts:
             path: anchore_reports
 workflows:
-    bla:
+    anchore_sec_scan:
         jobs:
-          - blob2
+          - scan_images_nc_staging
