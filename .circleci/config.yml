@@ -12,3 +12,4 @@ workflows:
               image_name: 'docker.io/nextcloud:latest'
           - anchore/image_scan:
               image_name: 'docker.elastic.co/kibana/kibana-oss:6.5.4'
+              timeout: '800'
