@@ -6,7 +6,7 @@ orbs:
 workflows:
     bla:
         jobs:
-          - bla_meer:
+          - build:
               executor: anchore/anchore_engine
               steps:
                 - checkout
