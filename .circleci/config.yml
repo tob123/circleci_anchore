@@ -4,9 +4,9 @@ orbs:
     anchore: anchore/anchore-engine@1.1.0
 
 jobs:
-  build:
+  blob2:
     executor: anchore/anchore_engine
-      steps:
+    steps:
         - checkout
         - install_tools
         - setup_anchore_engine
@@ -31,4 +31,4 @@ jobs:
 workflows:
     bla:
         jobs:
-          - build
+          - blob2
