@@ -3,30 +3,32 @@ version: 2.1
 orbs:
     anchore: anchore/anchore-engine@1.1.0
 
+jobs:
+  build:
+    executor: anchore/anchore_engine
+      steps:
+        - checkout
+        - install_tools
+        - setup_anchore_engine
+        - analyze_image:
+            image_name: 'docker.io/tob123/nextcloud-staging:15'
+            timeout: '800'
+        - policy_evaluation:
+            image_name: 'docker.io/tob123/nextcloud-staging:15'
+            policy_failure: true
+        - parse_reports
+        - store_artifacts:
+            path: anchore_reports
+        - analyze_image:
+            image_name: 'docker.io/tob123/nextcloud:15.0.2'
+            timeout: '800'
+        - policy_evaluation:
+            image_name: 'docker.io/tob123/nextcloud:15.0.2'
+            policy_failure: true
+        - parse_reports
+         - store_artifacts:
+             path: anchore_reports
 workflows:
     bla:
         jobs:
-          - build:
-              executor: anchore/anchore_engine
-              steps:
-                - checkout
-                - install_tools
-                - setup_anchore_engine
-                - analyze_image:
-                    image_name: 'docker.io/tob123/nextcloud-staging:15'
-                    timeout: '800'
-                - policy_evaluation:
-                    image_name: 'docker.io/tob123/nextcloud-staging:15'
-                    policy_failure: true
-                - parse_reports
-                - store_artifacts:
-                    path: anchore_reports
-                - analyze_image:
-                    image_name: 'docker.io/tob123/nextcloud:15.0.2'
-                    timeout: '800'
-                - policy_evaluation:
-                    image_name: 'docker.io/tob123/nextcloud:15.0.2'
-                    policy_failure: true
-                - parse_reports
-                - store_artifacts:
-                    path: anchore_reports
+          - build
