@@ -7,7 +7,41 @@ workflows:
     scan_image:
         jobs:
           - anchore/image_scan:
+              image_name: docker.io/tob123/nextcloud:13.0.8
+              policy_failure: true
+          - anchore/image_scan:
+              image_name: docker.io/tob123/nextcloud:14
+              policy_failure: true
+          - anchore/image_scan:
+              image_name: docker.io/tob123/nextcloud:14.0.4
+              policy_failure: true
+          - anchore/image_scan:
+              image_name: docker.io/tob123/nextcloud:15.0.0
+              policy_failure: true
+          - anchore/image_scan:
+              image_name: docker.io/tob123/nextcloud:latest
+              policy_failure: true
+          - anchore/image_scan:
+              image_name: docker.io/tob123/nextcloud:15.0.2
+              policy_failure: true
+          - anchore/image_scan:
+              image_name: docker.io/tob123/nextcloud:15
+              policy_failure: true
+          - anchore/image_scan:
+              image_name: docker.io/tob123/nextcloud:13.0.7
+              policy_failure: true
+          - anchore/image_scan:
+              image_name: docker.io/tob123/nextcloud:13.0.0
+              policy_failure: true
+          - anchore/image_scan:
+              image_name: docker.io/tob123/nextcloud:13
+              policy_failure: true
+          - anchore/image_scan:
               image_name: 'docker.io/tob123/nextcloud-staging:15'
+              policy_failure: true
+          - anchore/image_scan:
+              image_name: 'docker.io/tob123/nextcloud:15.0.2'
+              policy_failure: true
           - anchore/image_scan:
               image_name: 'docker.io/nextcloud:latest'
           - anchore/image_scan:
