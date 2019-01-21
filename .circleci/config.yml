@@ -4,9 +4,9 @@ orbs:
     anchore: anchore/anchore-engine@1.1.0
 
 workflows:
-    scan_image:
+    bla:
         jobs:
-          - custom_image_scan:
+          - bla_meer:
               executor: anchore/anchore_engine
               steps:
                 - checkout
