@@ -10,7 +10,7 @@ jobs:
         - checkout
         - anchore/install_tools
         - anchore/setup_anchore_engine
-       - run:
+        - run:
             name: checking docker.io/tob123/nextcloud:13.0.8
             command: echo this_is_just_to_get_the_container_name_into_circlecigui
         - anchore/analyze_image:
@@ -22,7 +22,7 @@ jobs:
         - anchore/parse_reports
         - store_artifacts:
             path: anchore_reports
-       - run:
+        - run:
             name: checking docker.io/tob123/nextcloud:14
             command: echo this_is_just_to_get_the_container_name_into_circlecigui
         - anchore/analyze_image:
@@ -34,7 +34,7 @@ jobs:
         - anchore/parse_reports
         - store_artifacts:
             path: anchore_reports
-       - run:
+        - run:
             name: checking docker.io/tob123/nextcloud:14.0.4
             command: echo this_is_just_to_get_the_container_name_into_circlecigui
         - anchore/analyze_image:
@@ -46,7 +46,7 @@ jobs:
         - anchore/parse_reports
         - store_artifacts:
             path: anchore_reports
-       - run:
+        - run:
             name: checking docker.io/tob123/nextcloud:15.0.0
             command: echo this_is_just_to_get_the_container_name_into_circlecigui
         - anchore/analyze_image:
@@ -58,7 +58,7 @@ jobs:
         - anchore/parse_reports
         - store_artifacts:
             path: anchore_reports
-       - run:
+        - run:
             name: checking docker.io/tob123/nextcloud:latest
             command: echo this_is_just_to_get_the_container_name_into_circlecigui
         - anchore/analyze_image:
@@ -70,7 +70,7 @@ jobs:
         - anchore/parse_reports
         - store_artifacts:
             path: anchore_reports
-       - run:
+        - run:
             name: checking docker.io/tob123/nextcloud:15.0.2
             command: echo this_is_just_to_get_the_container_name_into_circlecigui
         - anchore/analyze_image:
@@ -82,7 +82,7 @@ jobs:
         - anchore/parse_reports
         - store_artifacts:
             path: anchore_reports
-       - run:
+        - run:
             name: checking docker.io/tob123/nextcloud:15
             command: echo this_is_just_to_get_the_container_name_into_circlecigui
         - anchore/analyze_image:
@@ -94,7 +94,7 @@ jobs:
         - anchore/parse_reports
         - store_artifacts:
             path: anchore_reports
-       - run:
+        - run:
             name: checking docker.io/tob123/nextcloud:13.0.7
             command: echo this_is_just_to_get_the_container_name_into_circlecigui
         - anchore/analyze_image:
@@ -106,7 +106,7 @@ jobs:
         - anchore/parse_reports
         - store_artifacts:
             path: anchore_reports
-       - run:
+        - run:
             name: checking docker.io/tob123/nextcloud:13.0.0
             command: echo this_is_just_to_get_the_container_name_into_circlecigui
         - anchore/analyze_image:
@@ -118,7 +118,7 @@ jobs:
         - anchore/parse_reports
         - store_artifacts:
             path: anchore_reports
-       - run:
+        - run:
             name: checking docker.io/tob123/nextcloud:13
             command: echo this_is_just_to_get_the_container_name_into_circlecigui
         - anchore/analyze_image:

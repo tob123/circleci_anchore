@@ -3,7 +3,7 @@ for i in ${NC_TAGS}
 do #echo $i
 NC_INPUT=$(mktemp)
 cat <<EOF > $NC_INPUT
-       - run:
+        - run:
             name: checking docker.io/tob123/nextcloud:${i}
             command: echo this_is_just_to_get_the_container_name_into_circlecigui
         - anchore/analyze_image:
