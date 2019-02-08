@@ -1,6 +1,7 @@
 NC_TAGS=$(curl -L -s 'https://registry.hub.docker.com/v2/repositories/tob123/nextcloud-staging/tags' | jq -r '."results"[]["name"]')
-rm config.yml
-cat <<EOF > config.yml
+DIR_NAME=$(dirname $0)
+rm ${DIR_NAME}/config.yml
+cat <<EOF > ${DIR_NAME}/config.yml
 version: 2.1
 
 orbs:
@@ -33,10 +34,10 @@ cat <<EOF > $NC_INPUT
 EOF
 #cat $NC_INPUT
 
-sed -i "/setup_anchore_engine/r ${NC_INPUT}" config.yml
+sed -i "/setup_anchore_engine/r ${NC_INPUT}" ${DIR_NAME}/config.yml
 rm $NC_INPUT
 done
-cat <<EOF >> config.yml
+cat <<EOF >> ${DIR_NAME}/config.yml
         - anchore/parse_reports
         - store_artifacts:
             path: anchore_reports
