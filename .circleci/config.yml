@@ -59,25 +59,25 @@ jobs:
         - store_artifacts:
             path: anchore_reports
         - run:
-            name: checking docker.io/tob123/nextcloud-staging:13.0.9
+            name: checking docker.io/tob123/nextcloud-staging:15.0.4
             command: echo this_is_just_to_get_the_container_name_into_circlecigui
         - anchore/analyze_image:
-            image_name: docker.io/tob123/nextcloud-staging:13.0.9
+            image_name: docker.io/tob123/nextcloud-staging:15.0.4
             timeout: '800'
         - anchore/policy_evaluation:
-            image_name: docker.io/tob123/nextcloud-staging:13.0.9
+            image_name: docker.io/tob123/nextcloud-staging:15.0.4
             policy_failure: true
         - anchore/parse_reports
         - store_artifacts:
             path: anchore_reports
         - run:
-            name: checking docker.io/tob123/nextcloud-staging:13
+            name: checking docker.io/tob123/nextcloud-staging:15
             command: echo this_is_just_to_get_the_container_name_into_circlecigui
         - anchore/analyze_image:
-            image_name: docker.io/tob123/nextcloud-staging:13
+            image_name: docker.io/tob123/nextcloud-staging:15
             timeout: '800'
         - anchore/policy_evaluation:
-            image_name: docker.io/tob123/nextcloud-staging:13
+            image_name: docker.io/tob123/nextcloud-staging:15
             policy_failure: true
         - anchore/parse_reports
         - store_artifacts:
@@ -107,25 +107,25 @@ jobs:
         - store_artifacts:
             path: anchore_reports
         - run:
-            name: checking docker.io/tob123/nextcloud-staging:15.0.4
+            name: checking docker.io/tob123/nextcloud-staging:13.0.9
             command: echo this_is_just_to_get_the_container_name_into_circlecigui
         - anchore/analyze_image:
-            image_name: docker.io/tob123/nextcloud-staging:15.0.4
+            image_name: docker.io/tob123/nextcloud-staging:13.0.9
             timeout: '800'
         - anchore/policy_evaluation:
-            image_name: docker.io/tob123/nextcloud-staging:15.0.4
+            image_name: docker.io/tob123/nextcloud-staging:13.0.9
             policy_failure: true
         - anchore/parse_reports
         - store_artifacts:
             path: anchore_reports
         - run:
-            name: checking docker.io/tob123/nextcloud-staging:15
+            name: checking docker.io/tob123/nextcloud-staging:13
             command: echo this_is_just_to_get_the_container_name_into_circlecigui
         - anchore/analyze_image:
-            image_name: docker.io/tob123/nextcloud-staging:15
+            image_name: docker.io/tob123/nextcloud-staging:13
             timeout: '800'
         - anchore/policy_evaluation:
-            image_name: docker.io/tob123/nextcloud-staging:15
+            image_name: docker.io/tob123/nextcloud-staging:13
             policy_failure: true
         - anchore/parse_reports
         - store_artifacts:
