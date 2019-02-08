@@ -5,7 +5,7 @@ cat <<EOF > ${DIR_NAME}/config.yml
 version: 2.1
 
 orbs:
-    anchore: anchore/anchore-engine@1.1.0
+    anchore: anchore/anchore-engine@1.2.0
 
 jobs:
   scan_images_nc:
